@@ -2,7 +2,7 @@
   <div class="flex flex-col h-screen">
     <div
       class="p-2 my-2 hover:bg-blue-50 hover:rounded-full w-min dark:hover:bg-white/20"
-      :class="transition"
+      :class="defaultTransition"
     >
       <nuxt-link to="/">
         <div class="w-8 h-8">
@@ -25,6 +25,13 @@
         </template>
         <template v-slot:name> Explore </template>
       </SidebarLeftTab>
+      
+      <SidebarLeftTab>
+        <template v-slot:icon>
+          <BellIcon />
+        </template>
+        <template v-slot:name> Notifications </template>
+      </SidebarLeftTab>
 
       <SidebarLeftTab>
         <template v-slot:icon>
@@ -38,13 +45,6 @@
           <BookmarkIcon />
         </template>
         <template v-slot:name> Bookmarks </template>
-      </SidebarLeftTab>
-
-      <SidebarLeftTab>
-        <template v-slot:icon>
-          <BellIcon />
-        </template>
-        <template v-slot:name> Home </template>
       </SidebarLeftTab>
 
       <SidebarLeftTab>
@@ -73,7 +73,10 @@
 
 <script setup>
 import {
-  HomeIcon,
+  HomeIcon
+} from "@heroicons/vue/solid";
+
+import {
   HashtagIcon,
   BellIcon,
   InboxIcon,
@@ -81,6 +84,6 @@ import {
   DocumentTextIcon,
   UserIcon,
   DotsCircleHorizontalIcon,
-} from "@heroicons/vue/solid";
+} from "@heroicons/vue/outline";
 const { defaultTransition } = useTailwindConfig();
 </script>
